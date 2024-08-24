@@ -26,14 +26,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-gr0kr0#3ev25^=f0t3i2v_0ylm$5c_vy+(i%2eggik$6+0qi2_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 
 
 
 
-ALLOWED_HOSTS = ["localhost:3000", '127.0.0.1']
+ALLOWED_HOSTS = ["localhost:3000", '127.0.0.1', 'https://capstone-2-backend-x83m.onrender.com']
 
 
 # Application definition
@@ -203,7 +203,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
   
     "http://localhost:3000",
-    'http://127.0.0.1'
+    'http://127.0.0.1',
+    'https://capstone-2-backend-x83m.onrender.com'
     
     
 ]
