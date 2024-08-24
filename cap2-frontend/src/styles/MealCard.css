@@ -1,0 +1,18 @@
+#ingredients-list ul{
+    max-width: 50%;
+    list-style-type: circle;
+    gap: 1rem;
+}
+#ingredients-list ul button{
+    margin-top: auto;
+}
+#meal-card{
+    gap: 1rem;
+    width: min(90%,800px);
+}
+
+.instructions ol{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

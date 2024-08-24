@@ -1,0 +1,22 @@
+databases:
+  - name: capstone_2_backenddb
+    plan: free
+    databaseName: capstone_2_backend
+    user: capstone_2_backend
+
+services:
+  - type: web
+    plan: free
+    name: capstone_2_backend
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "python -m gunicorn capstone_2_backend.asgi:application -k uvicorn.workers.UvicornWorker"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: capstone_2_backenddb
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
