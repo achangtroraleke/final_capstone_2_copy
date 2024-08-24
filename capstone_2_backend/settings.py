@@ -26,14 +26,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-gr0kr0#3ev25^=f0t3i2v_0ylm$5c_vy+(i%2eggik$6+0qi2_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 
 
 
 
-ALLOWED_HOSTS = ["http://localhost:3000", 'http://127.0.0.1']
+ALLOWED_HOSTS = ["localhost:3000", '127.0.0.1']
 
 
 # Application definition
@@ -124,7 +124,9 @@ ROOT_URLCONF = 'capstone_2_backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR/'cap2-frontend/build'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -150,7 +152,7 @@ DATABASES = {
     },
     'production': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://postgres:postgres@localhost:5432/capstone_2_backend',
+        default='postgres://qcdwyggu:H0_ZNVeAFaTqNP_n5gw2oB1soyBmVw9j@kala.db.elephantsql.com/qcdwyggu',
         conn_max_age=600)
 }
 
@@ -191,7 +193,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -205,7 +207,10 @@ CORS_ALLOWED_ORIGINS = [
     
     
 ]
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
+STATICFILES_DIRS =[
+    os.path.join(BASE_DIR /'cap2-frontend/build/static' )
+]
 
 # This production code might break development mode, so we check whether we're in DEBUG mode
 if not DEBUG:
@@ -215,3 +220,10 @@ if not DEBUG:
     # and renames the files with unique names for each version to support long-term caching
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+REACT_ROUTES = [
+  'login',
+  'register',
+  'profile',
+ 
+  
+]

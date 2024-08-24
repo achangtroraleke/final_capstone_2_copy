@@ -963,7 +963,7 @@ export const AuthProvider = ({children}) =>{
     
     const {REACT_APP_API_TOKEN, REACT_APP_BACKEND_URL} = process.env;
     console.log(REACT_APP_BACKEND_URL)
-    const url = `${REACT_APP_BACKEND_URL}/api/`;
+    const url = `${REACT_APP_BACKEND_URL}/api`;
     const headers = {'Content-Type':'application/json'};
  
 
@@ -973,7 +973,7 @@ export const AuthProvider = ({children}) =>{
         const body = JSON.stringify({'email':data.email, 'password':data.password})
         console.log(body)
         try{
-            let response = await axios(`${url}token/`,{'method':'POST', 'data':body, headers})
+            let response = await axios(`${url}/token/`,{'method':'POST', 'data':body, headers})
             console.log(response)
             if(response.status === 200){
                 let data = response.data;
@@ -996,7 +996,7 @@ export const AuthProvider = ({children}) =>{
         const body = JSON.stringify({'username':data.username, 'email':data.email, 'password':data.password})
         console.log(body)
         try{
-            let response = await axios(`${url}register/`,{'method':'POST', 'data':body, headers})
+            let response = await axios(`${url}/register/`,{'method':'POST', 'data':body, headers})
             console.log(response)
             if(response.status === 200){
                 navigate('/login')
@@ -1123,7 +1123,7 @@ let addFavorite = async (data) =>{
    
     try{
         let AuthStr = `Bearer ${String(authTokens.access)}`;
-        let response = await axios(`${url}favorites/add/`,{'method':'POST', 'data':body, headers: {'Content-Type':'application/json', 'Authorization': AuthStr}})
+        let response = await axios(`${url}/favorites/add/`,{'method':'POST', 'data':body, headers: {'Content-Type':'application/json', 'Authorization': AuthStr}})
 
         if(response.status === 200){
             let resp_data = response.data;
@@ -1148,7 +1148,7 @@ let removeFavorite = async (id) =>{
     console.log(body)
     try{
         let AuthStr = `Bearer ${String(authTokens.access)}`;
-        let response = await axios(`${url}favorites/delete/`,{'method':'POST', 'data':body, headers: {'Content-Type':'application/json', 'Authorization': AuthStr}})
+        let response = await axios(`${url}/favorites/delete/`,{'method':'POST', 'data':body, headers: {'Content-Type':'application/json', 'Authorization': AuthStr}})
 
         console.log(favId)
         if(response.status === 200){
@@ -1203,7 +1203,7 @@ let removeFavorite = async (id) =>{
         // });
        
         try{
-            let response = await axios(`${url}token/refresh/`,{'method':'POST', 'data':body, headers})
+            let response = await axios(`${url}/token/refresh/`,{'method':'POST', 'data':body, headers})
 
             if(response.status === 200){
                 let data = response.data;
