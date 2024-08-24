@@ -33,7 +33,7 @@ DEBUG = False
 
 
 
-ALLOWED_HOSTS = ["localhost:3000", '127.0.0.1', 'https://capstone-2-backend-x83m.onrender.com']
+ALLOWED_HOSTS = ["localhost:3000", '127.0.0.1', 'capstone-2-backend-x83m.onrender.com']
 
 
 # Application definition
