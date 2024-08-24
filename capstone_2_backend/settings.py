@@ -33,7 +33,7 @@ DEBUG = False
 
 
 
-ALLOWED_HOSTS = ["http://localhost:3000", '127.0.0.1']
+ALLOWED_HOSTS = ["http://localhost:3000", 'http://127.0.0.1']
 
 
 # Application definition
@@ -201,7 +201,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
   
     "http://localhost:3000",
-    '127.0.0.1'
+    'http://127.0.0.1'
     
     
 ]
